@@ -8,18 +8,24 @@ function search() {
     var cep = document.getElementById("inputCEP").value;
     var url = `https://viacep.com.br/ws/${cep}/json/`;
     
-    $.getJSON(url, (response) => {
+    $.getJSON(url, (cepResponse) => {
 
-        document.getElementById("inputAdress").value = response.logradouro;
-        document.getElementById("inputNeighborhood").value = response.bairro;
-        document.getElementById("inputCity").value = response.localidade;
-        document.getElementById("inputState").value = response.uf;
+        if (("erro" in cepResponse)) {
+            
+            showMessage("Não Encontrado!");
+            changePropDisabledOfInputNumber(true);
+        }
+        else {
 
-        $("#inputNumber").prop("disabled", false);
+            showCepData(cepResponse);
+            changePropDisabledOfInputNumber(false);
+            showMessage("");
+        }
 
     }).fail(() => {
 
-        console.log("Erro");
+        showMessage("CEP Inválido!");
+        changePropDisabledOfInputNumber(true);
     });
 }
 
@@ -41,7 +47,7 @@ function save() {
 
     document.getElementById("formClient").reset();
 
-    $("#inputNumber").prop("disabled", true);
+    changePropDisabledOfInputNumber(true);
 }
 
 function addNewRow(client) {
@@ -75,4 +81,19 @@ function addNewRow(client) {
     //Insert state client
     var stateNode = document.createTextNode(client.state);
     newRow.insertCell().appendChild(stateNode);
+}
+
+function showMessage(msg) {
+    document.getElementById("msg").innerHTML = `<p class="text-danger align-items-end pt-2 m-0">${msg}</p>`;
+}
+
+function changePropDisabledOfInputNumber(state) {
+    $("#inputNumber").prop("disabled", state);
+}
+
+function showCepData(cepResponse) {
+    document.getElementById("inputAdress").value = cepResponse.logradouro;
+    document.getElementById("inputNeighborhood").value = cepResponse.bairro;
+    document.getElementById("inputCity").value = cepResponse.localidade;
+    document.getElementById("inputState").value = cepResponse.uf;
 }
