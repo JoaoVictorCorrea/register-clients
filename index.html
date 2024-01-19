@@ -7,14 +7,64 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
-    <header class="text-center mt-4">
+    <header class="text-center mt-5">
         <h3>Cadastro de Clientes:</h3>
     </header>
 
-    <div class="container shadow rounded mt-3">
+    <div class="container shadow rounded mt-5">
         <main>
             <section>
-
+                <div class="row px-5">
+                    <form>
+                        <div class="col-12 mt-4">
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="inputNome" class="form-label">Nome:</label>
+                                    <input type="text" class="form-control" id="inputNome">
+                                </div>
+                                <div class="col-6">
+                                    <label for="inputLastName" class="form-label">Sobrenome:</label>
+                                    <input type="text" class="form-control" id="inputLastName">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-3">
+                                    <label for="inputCEP" class="form-label">Pesquise pelo CEP:</label>
+                                    <input type="text" class="form-control" id="inputCEP">
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-10">
+                                    <label for="inputAdress" class="form-label">Endereço:</label>
+                                    <input type="text" class="form-control" id="inputAdress" disabled>
+                                </div>
+                                <div class="col-2">
+                                    <label for="inputNumber" class="form-label">Número:</label>
+                                    <input type="number" class="form-control" id="inputNumber" disabled>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <label for="inputNeighborhood" class="form-label">Bairro:</label>
+                                    <input type="text" class="form-control" id="inputNeighborhood" disabled>
+                                </div>
+                                <div class="col-6">
+                                    <label for="inputCity" class="form-label">Cidade:</label>
+                                    <input type="text" class="form-control" id="inputCity" disabled>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-2">
+                                    <label for="inputState" class="form-label">Estado:</label>
+                                    <input type="text" class="form-control" id="inputState" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col text-center mt-4">
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form>
+                </div>
             </section>
 
             <section>
@@ -22,7 +72,7 @@
             </section>
         </main>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>
