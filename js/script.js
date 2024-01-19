@@ -72,15 +72,21 @@ function addNewRow(client) {
 
     //Insert neighborhood client
     var neighborhoodNode = document.createTextNode(client.neighborhood);
-    newRow.insertCell().appendChild(neighborhoodNode);
+    var cell = newRow.insertCell();
+    cell.className = "d-none d-md-table-cell";
+    cell.appendChild(neighborhoodNode);
 
     //Insert city client
     var cityNode = document.createTextNode(client.city);
-    newRow.insertCell().appendChild(cityNode);
+    var cell = newRow.insertCell();
+    cell.className = "d-none d-sm-table-cell";
+    cell.appendChild(cityNode);
 
     //Insert state client
     var stateNode = document.createTextNode(client.state);
-    newRow.insertCell().appendChild(stateNode);
+    var cell = newRow.insertCell();
+    cell.className = "d-none d-sm-table-cell";
+    cell.appendChild(stateNode);
 }
 
 function showMessage(msg) {
