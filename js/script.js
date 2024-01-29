@@ -13,6 +13,7 @@ function search() {
         if (("erro" in cepResponse)) {
             
             showMessage("Não Encontrado!");
+            showCepData(cepResponse);
             changePropDisabledOfInputNumber(true);
         }
         else {
@@ -22,9 +23,10 @@ function search() {
             showMessage("");
         }
 
-    }).fail(() => {
+    }).fail((cepResponseFail) => {
 
         showMessage("CEP Inválido!");
+        showCepData(cepResponseFail);
         changePropDisabledOfInputNumber(true);
     });
 }
@@ -98,8 +100,8 @@ function changePropDisabledOfInputNumber(state) {
 }
 
 function showCepData(cepResponse) {
-    document.getElementById("inputAdress").value = cepResponse.logradouro;
-    document.getElementById("inputNeighborhood").value = cepResponse.bairro;
-    document.getElementById("inputCity").value = cepResponse.localidade;
-    document.getElementById("inputState").value = cepResponse.uf;
+    document.getElementById("inputAdress").value = cepResponse.logradouro || "";
+    document.getElementById("inputNeighborhood").value = cepResponse.bairro || "";
+    document.getElementById("inputCity").value = cepResponse.localidade || "";
+    document.getElementById("inputState").value = cepResponse.uf || "";
 }
